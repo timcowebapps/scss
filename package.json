@@ -1,0 +1,11 @@
+{
+	"name": "timcowebapps-scss",
+	"version": "0.1.0",
+	"description": "",
+	"author": "Victor Timoshin <victor-timoshin@hotmail.com>",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/timcowebapps/scss.git"
+	}
+}
