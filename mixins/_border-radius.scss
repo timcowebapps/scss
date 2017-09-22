@@ -1,6 +1,91 @@
-@mixin border-radius($radius) {
-	-webkit-border-radius: $radius;
-	-moz-border-radius: $radius;
-	-o-border-radius: $radius;
-	border-radius: $radius;
+/**
+ * Включает `<true>` округление углов.
+ * @type Boolean
+ */
+$global-enable-rounded: true !default;
+
+/**
+ * Значение радиуса угла по умолчанию.
+ * @type Number
+ */
+$global-border-radius: 3rem !default;
+
+/**
+ * Миксина округления углов (все углы).
+ * @param {Number} $radius [$global-border-radius] Значение радиуса.
+ */
+@mixin border-radius($radius: $global-border-radius) {
+	@if $global-enable-rounded {
+		-webkit-border-radius: $radius; /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+		-moz-border-radius: $radius; /* Firefox 1-3.6 */
+		border-radius: $radius; /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+	}
+}
+
+/**
+ * Миксина округления углов (верхнии углы).
+ * @param {Number} $radius [$global-border-radius] Значение радиуса.
+ */
+@mixin border-top-radius($radius: $global-border-radius) {
+	@if $global-enable-rounded {
+		/* top-left */
+		-moz-border-radius-topleft: $radius;
+		-webkit-border-top-left-radius: $radius;
+		border-top-left-radius: $radius;
+		/* top-right */
+		-moz-border-radius-topright: $radius;
+		-webkit-border-top-right-radius: $radius;
+		border-top-right-radius: $radius;
+	}
+}
+
+/**
+ * Миксина округления углов (левые углы).
+ * @param {Number} $radius [$global-border-radius] Значение радиуса.
+ */
+@mixin border-left-radius($radius: $global-border-radius) {
+	@if $enable-rounded {
+		/* top-left */
+		-webkit-border-top-left-radius: $radius;
+		-moz-border-radius-topleft: $radius;
+		border-top-left-radius: $radius;
+		/* bottom-left */
+		-webkit-border-bottom-left-radius: $radius;
+		-moz-border-radius-bottomleft: $radius;
+		border-bottom-left-radius: $radius;
+	}
+}
+
+/**
+ * Миксина округления углов (нижнии углы).
+ * @param {Number} $radius [$global-border-radius] Значение радиуса.
+ */
+ @mixin border-bottom-radius($radius: $global-border-radius) {
+	@if $global-enable-rounded {
+		/* bottom-left */
+		-moz-border-radius-bottomleft: $radius;
+		-webkit-border-bottom-left-radius: $radius;
+		border-bottom-left-radius: $radius;
+		/* bottom-right */
+		-moz-border-radius-bottomright: $radius;
+		-webkit-border-bottom-right-radius: $radius;
+		border-bottom-right-radius: $radius;
+	}
+}
+
+/**
+ * Миксина округления углов (правые углы).
+ * @param {Number} $radius [$global-border-radius] Значение радиуса.
+ */
+ @mixin border-right-radius($radius: $global-border-radius) {
+	@if $enable-rounded {
+		/* top-right */
+		-webkit-border-top-right-radius: $radius;
+		-moz-border-radius-topright: $radius;
+		border-top-right-radius: $radius;
+		/* bottom-right */
+		-webkit-border-bottom-right-radius: $radius;
+		-moz-border-radius-bottomright: $radius;
+		border-bottom-right-radius: $radius;
+	}
 }
