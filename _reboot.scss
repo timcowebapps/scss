@@ -1,11 +1,31 @@
-*,
-*::before,
-*::after {
+@import 'global';
+
+html {
 	box-sizing: border-box;
 }
 
-html {
-	font-family: sans-serif;
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	color: $global-body-font-color;
+	font-family: $global-body-font-family;
+	font-size: $global-font-size;
+	font-weight: $global-weight-normal;
+	line-height: $global-line-height;
+	
+	background: $global-body-background;
+	position: relative;
+	margin: 0; /* Убираем отступ во всех браузерах. */
+	padding: 0;
+}
+
+body, html {
+	height: 100%;
+	width: 100%;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {

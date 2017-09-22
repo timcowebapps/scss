@@ -9,3 +9,75 @@ $global-font-size: 100% !default;
  * @type Number
  */
 $global-line-height: 1.5 !default;
+
+/**
+ * Нормальное начертание символов.
+ * @type Keyword | Number
+ */
+$global-weight-normal: normal !default;
+
+/**
+ * Жирное начертание.
+ * @type Keyword | Number
+ */
+$global-weight-bold: bold !default;
+
+/**
+ * Палитра серых цветов.
+ * @type Map
+ */
+$global-grey-palette: (
+	grey-washed: #fefefe, /* Белый цвет. */
+	grey-light: #e6e6e6,  /* Светло-серый цвет. */
+	gray-medium: #cacaca, /* Серый цвет. */
+	grey-dark: #8a8a8a,   /* Темно-серый цвет. */
+	grey-deep: #2b2b2b    /* Черный цвет. */
+) !default;
+
+/**
+ * Белый цвет.
+ * @type Color
+ */
+$global-grey-washed: map-get($global-grey-palette, grey-washed) !default;
+
+/**
+ * Светло-серый цвет.
+ * @type Color
+ */
+$global-grey-light: map-get($global-grey-palette, grey-light) !default;
+
+/**
+ * Серый цвет.
+ * @type Color
+ */
+$global-gray-medium: map-get($global-grey-palette, gray-medium) !default;
+
+/**
+ * Темно-серый цвет.
+ * @type Color
+ */
+$global-grey-dark: map-get($global-grey-palette, grey-dark) !default;
+
+/**
+ * Черный цвет.
+ * @type Color
+ */
+$global-grey-deep: map-get($global-grey-palette, grey-deep) !default;
+
+/**
+ * Шрифт тела по умолчанию.
+ * @type List
+ */
+$global-body-font-family: Arial, sans-serif !default;
+
+/**
+ * Цвет текста тела по умолчанию.
+ * @type Color
+ */
+$global-body-font-color: $global-grey-deep !default;
+
+/**
+ * Цвет фона тела по умолчанию.
+ * @type Color
+ */
+$global-body-background: $global-grey-washed !default;
