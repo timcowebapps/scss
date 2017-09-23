@@ -1,16 +1,4 @@
 /**
- * Включает `<true>` округление углов.
- * @type Boolean
- */
-$global-enable-rounded: true !default;
-
-/**
- * Значение радиуса угла по умолчанию.
- * @type Number
- */
-$global-border-radius: 3rem !default;
-
-/**
  * Миксина округления углов (все углы).
  * @param {Number} $radius [$global-border-radius] Значение радиуса.
  */
@@ -44,7 +32,7 @@ $global-border-radius: 3rem !default;
  * @param {Number} $radius [$global-border-radius] Значение радиуса.
  */
 @mixin border-left-radius($radius: $global-border-radius) {
-	@if $enable-rounded {
+	@if $global-enable-rounded {
 		/* top-left */
 		-webkit-border-top-left-radius: $radius;
 		-moz-border-radius-topleft: $radius;
@@ -78,7 +66,7 @@ $global-border-radius: 3rem !default;
  * @param {Number} $radius [$global-border-radius] Значение радиуса.
  */
  @mixin border-right-radius($radius: $global-border-radius) {
-	@if $enable-rounded {
+	@if $global-enable-rounded {
 		/* top-right */
 		-webkit-border-top-right-radius: $radius;
 		-moz-border-radius-topright: $radius;
