@@ -105,3 +105,15 @@ $global-border-radius: .1875rem/*3px*/ !default;
   * @type Number
   */
  $global-box-shadow: 0 1px 7px rgba(0, 0, 0, .05) !default;
+
+ /**
+ * Включает `<true>` переход у элементов.
+ * @type Boolean
+ */
+$global-enable-transitions: true !default;
+ 
+/**
+ * Значение перехода  по умолчанию.
+ * @type List
+ */
+$global-transition: all .25s !default;

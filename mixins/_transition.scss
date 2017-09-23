@@ -1,6 +1,20 @@
-@mixin transition($value) {
-	-webkit-transition: $value;
-	-moz-transition: $value;
-	-o-transition: $value;
-	transition: $value;
+/**
+ * Миксина перехода.
+ * @param {Arglist} $args Значение перехода.
+ */
+@mixin transition-arglist($args...) {
+	@if $global-enable-transitions {
+		-webkit-transition: $args;
+		-moz-transition: $args;
+		-o-transition: $args;
+		transition: $args;
+	}
+}
+
+/**
+ * Миксина перехода.
+ * @param {List} $transition [$global-transition] Значение перехода.
+ */
+@mixin transition($transition: $global-transition) {
+	@include transition-arglist($transition);
 }
