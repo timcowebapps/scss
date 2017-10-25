@@ -1,32 +1,8 @@
 /**
- * Размер шрифта по умолчанию. 
- * @type Number
- */
-$global-font-size: 100% !default;
-
-/**
- * Высота строки по умолчанию.
- * @type Number
- */
-$global-line-height: 1.5 !default;
-
-/**
- * Нормальное начертание символов.
- * @type Keyword | Number
- */
-$global-weight-normal: normal !default;
-
-/**
- * Жирное начертание.
- * @type Keyword | Number
- */
-$global-weight-bold: bold !default;
-
-/**
  * Палитра серых цветов.
  * @type Map
  */
-$global-grey-palette: (
+ $global-grey-palette: (
 	grey-washed: #fefefe, /* Белый цвет. */
 	grey-light: #e6e6e6,  /* Светло-серый цвет. */
 	gray-medium: #cacaca, /* Серый цвет. */
@@ -63,6 +39,72 @@ $global-grey-dark: map-get($global-grey-palette, grey-dark) !default;
  * @type Color
  */
 $global-grey-deep: map-get($global-grey-palette, grey-deep) !default;
+
+/**
+ * Палитра синих цветов.
+ * @type Map
+ */
+ $global-blue-palette: (
+	blue-washed: #f2f5fa, /* Очень светло-синий цвет. */
+	blue-light: #7da2bf,  /* Светло-синий цвет. */
+	blue-medium: #5d89ab, /* Синий цвет. */
+	blue-dark: #305d7f,   /* Темно-синий цвет. */
+	blue-deep: #2a5576    /* Очень темно-синий цвет. */
+) !default;
+
+/**
+ * Очень светло-синий цвет.
+ * @type Color
+ */
+ $global-blue-washed: map-get($global-blue-palette, blue-washed) !default;
+ 
+ /**
+  * Светло-синий цвет.
+  * @type Color
+  */
+ $global-blue-light: map-get($global-blue-palette, blue-light) !default;
+ 
+ /**
+  * Синий цвет.
+  * @type Color
+  */
+ $global-blue-medium: map-get($global-blue-palette, blue-medium) !default;
+ 
+ /**
+  * Темно-синий цвет.
+  * @type Color
+  */
+ $global-blue-dark: map-get($global-blue-palette, blue-dark) !default;
+ 
+ /**
+  * Очень темно-синий цвет.
+  * @type Color
+  */
+ $global-blue-deep: map-get($global-blue-palette, blue-deep) !default;
+
+/**
+ * Размер шрифта по умолчанию. 
+ * @type Number
+ */
+$global-font-size: 100% !default;
+
+/**
+ * Высота строки по умолчанию.
+ * @type Number
+ */
+$global-line-height: 1.5 !default;
+
+/**
+ * Нормальное начертание символов.
+ * @type Keyword | Number
+ */
+$global-weight-normal: normal !default;
+
+/**
+ * Жирное начертание.
+ * @type Keyword | Number
+ */
+$global-weight-bold: bold !default;
 
 /**
  * Шрифт тела по умолчанию.
