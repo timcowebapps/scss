@@ -107,7 +107,7 @@ $fuchsia-palette: (
 ) !default;
 
 $transparent-palette: (
-	transparent-light: rgba(255, 255, 255, 0.3);
-	transparent-medium: rgba(255, 255, 255, 0.5);
-	transparent-strong: rgba(255, 255, 255, 0.8);
+	transparent-light: rgba(255, 255, 255, 0.3),
+	transparent-medium: rgba(255, 255, 255, 0.5),
+	transparent-strong: rgba(255, 255, 255, 0.8)
 ) !default;

@@ -1,7 +1,17 @@
+$list-inline-padding: 0.313em !default;
+
 /**
  * Миксина очистки стилей у списка.
  */
 @mixin list-unstyled {
 	padding-left: 0;
 	list-style: none;
+}
+
+@mixin list-inline-item {
+	display: inline-block;
+
+	&:not(:last-child) {
+		margin-right: $list-inline-padding;
+	}
 }
