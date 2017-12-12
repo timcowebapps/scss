@@ -2,7 +2,7 @@
  * Размер шрифта `<small>` элементов.
  * @type Number
  */
-$font-size-sm: .875rem/*14 px*/ !default;
+$font-size-sm: 0.875rem/*14px*/ !default;
 
 /**
  * Размер шрифта `<medium>` элементов.
@@ -21,16 +21,90 @@ $font-size-lg: 1.125rem/*18px*/ !default;
  * @type Map
  */
 $header-sizes: (
-	'h1': 2.5 /*40px*/,
-	'h2': 2   /*32px*/,
-	'h3': 1.75/*28px*/,
-	'h4': 1.5 /*24px*/,
-	'h5': 1.25/*20px*/,
-	'h6': 1   /*16px*/
+	'h1': 2.5  /*40px*/,
+	'h2': 2    /*32px*/,
+	'h3': 1.75 /*28px*/,
+	'h4': 1.5  /*24px*/,
+	'h5': 1.25 /*20px*/,
+	'h6': 1    /*16px*/
 ) !default;
 
 @each $header, $font-size in $header-sizes {
 	#{$header} {
 		font-size: $font-size + rem;
 	}
+}
+
+/**
+ * Переводит px в rem.
+ * @param {Number} $target - Целочисленный размер шрифта в пикселях.
+ * @param {Number} $context [$global-font-size] - Целочисленный размер шрифта по умолчанию.
+ * @return {String} rem
+ * @example:
+ *    // scss
+ *    .text {
+ *    	  font-size: pxtorem(12px);
+ *    }
+ */
+@function pxtorem($target, $context: $global-font-size) {
+	@return ($target / $context) + 0rem;
+}
+
+/**
+ * Переводит rem в px.
+ * @param {Number} $target - Размер шрифта в единицах измерения rem.
+ * @param {Number} $context [$global-font-size] - Целочисленный размер шрифта по умолчанию.
+ * @return {String} px
+ * @example:
+ *    // scss
+ *    .text {
+ *    	  font-size: remtopx(1rem);
+ *    }
+ */
+@function remtopx($target, $context: $global-font-size) {
+	@return ($target * $context) + 0rem;
+}
+
+@function strip-units($number) {
+	@return $number / ($number * 0 + 1);
+}
+
+/**
+ * Отзывчивый размер шрифта, основанный на viewport-юнитах.
+ * @param {Number} $responsive - viewport-юнит (процент от ширины / высоты).
+ * @param {Number} $min - Минимальный размер шрифта в пикселях.
+ * @param {Number} $max [false] - Максимальный размер шрифта в пикселях.
+ * @param {Number} $fallback [false] - Промежуточный фиксированный размер в пикселях.
+ * @example:
+ *    // scss
+ *    .text {
+ *    	  @include responsive-font-size(3vw, 16, 14px, 18px, 16px);
+ *    }
+ */
+@mixin responsive-font-size($responsive, $min, $max: false, $fallback: false) {
+	$responsive-unitless: $responsive / ($responsive - $responsive + 1);
+	$dimension: if(unit($responsive) == 'vh', 'height', 'width');
+	$min-breakpoint: $min / $responsive-unitless * 100;
+	
+	@media (max-#{$dimension}: #{$min-breakpoint}) {
+		font-size: pxtorem(strip-units($min), $global-font-size);
+	}
+	
+	@if $max {
+		$max-breakpoint: $max / $responsive-unitless * 100;
+		
+		@media (min-#{$dimension}: #{$max-breakpoint}) {
+			font-size: pxtorem(strip-units($max), $global-font-size);
+		}
+	}
+	
+	@if $fallback {
+		font-size: pxtorem(strip-units($fallback), $global-font-size);
+	}
+	
+	font-size: $responsive;
+}
+
+@mixin _line-height($font-size, $default-line-height: $global-line-height) {
+	line-height: ceil($font-size / $default-line-height) * ($default-line-height / $font-size);
 }

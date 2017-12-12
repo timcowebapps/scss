@@ -1,0 +1,113 @@
+/**
+ * Палитра серых цветов.
+ * @type Map
+ */
+ $grey-palette: (
+	grey-washed: #fefefe, /* Очень светло-серый цвет. */
+	grey-light: #e6e6e6,  /* Светло-серый цвет. */
+	gray-medium: #cacaca, /* Серый цвет. */
+	grey-dark: #8a8a8a,   /* Темно-серый цвет. */
+	grey-deep: #2b2b2b    /* Очень темно-серый цвет. */
+) !default;
+
+/**
+ * Белый цвет.
+ * @type Color
+ */
+$grey-washed: map-get($grey-palette, grey-washed) !default;
+
+/**
+ * Светло-серый цвет.
+ * @type Color
+ */
+$grey-light: map-get($grey-palette, grey-light) !default;
+
+/**
+ * Серый цвет.
+ * @type Color
+ */
+$gray-medium: map-get($grey-palette, gray-medium) !default;
+
+/**
+ * Темно-серый цвет.
+ * @type Color
+ */
+$grey-dark: map-get($grey-palette, grey-dark) !default;
+
+/**
+ * Черный цвет.
+ * @type Color
+ */
+$grey-deep: map-get($grey-palette, grey-deep) !default;
+
+/**
+ * Палитра синих цветов.
+ * @type Map
+ */
+$blue-palette: (
+	blue-washed: #f2f5fa, /* Очень светло-синий цвет. */
+	blue-light: #7da2bf,  /* Светло-синий цвет. */
+	blue-medium: #5d89ab, /* Синий цвет. */
+	blue-dark: #305d7f,   /* Темно-синий цвет. */
+	blue-deep: #2a5576    /* Очень темно-синий цвет. */
+) !default;
+
+/**
+ * Очень светло-синий цвет.
+ * @type Color
+ */
+$blue-washed: map-get($blue-palette, blue-washed) !default;
+ 
+/**
+ * Светло-синий цвет.
+ * @type Color
+ */
+$blue-light: map-get($blue-palette, blue-light) !default;
+
+/**
+ * Синий цвет.
+ * @type Color
+ */
+$blue-medium: map-get($blue-palette, blue-medium) !default;
+ 
+/**
+ * Темно-синий цвет.
+ * @type Color
+ */
+$blue-dark: map-get($blue-palette, blue-dark) !default;
+ 
+/**
+ * Очень темно-синий цвет.
+ * @type Color
+ */
+$blue-deep: map-get($blue-palette, blue-deep) !default;
+
+$red-palette: (
+	red-medium: #e44a3c
+) !default;
+
+$green-palette: (
+	green-medium: #22d380
+) !default;
+
+$purple-palette: (
+	purple-medium: #2c2439
+) !default;
+
+$brown-palette: (
+	brown-medium: #634b47
+) !default;
+
+$orange-palette: (
+	orange-medium: #ebb430
+) !default;
+
+$fuchsia-palette: (
+	fuchsia-medium: #b54a91
+) !default;
+
+$transparent-palette: (
+	$transparent-light: rgba(255, 255, 255, 0.3);
+	$transparent-medium: rgba(255, 255, 255, 0.5);
+	$transparent-strong: rgba(255, 255, 255, 0.8);
+) !default;
