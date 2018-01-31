@@ -1,0 +1,35 @@
+/**
+ * Блок-элемент.
+ * @access public
+ * @param {String} $name - Имя элемента.
+ * @example:
+ *    // scss
+ *    .block {
+ *    	  @include element('element') {
+ *    	  }
+ *    }
+ */
+ @mixin element($name) {
+	@at-root &__#{$name} {
+		@content;
+	}
+}
+
+/**
+ * Модификатор блока.
+ * @access public
+ * @param {String} $name - Имя модификатора.
+ * @example:
+ *    // scss
+ *    .block {
+ *    	  @include element('element') {
+ *        	  @include modifier('modifier') {
+ *    	  	  }
+ *    	  }
+ *    }
+ */
+@mixin modifier($name) {
+	@at-root &--#{$name} {
+		@content;
+	}
+}

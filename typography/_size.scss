@@ -60,7 +60,7 @@ $header-sizes: (
  * @example:
  *    // scss
  *    .text {
- *    	  @include responsive-font-size(3vw, 16, 14px, 18px, 16px);
+ *    	  @include responsive-font-size(3vw, 14px, 18px, 16px);
  *    }
  */
 @mixin responsive-font-size($responsive, $min, $max: false, $fallback: false) {
