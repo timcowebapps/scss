@@ -1,16 +1,24 @@
+@import '_bem-funcs.scss';
+
 /**
  * Блок-элемент.
  * @access public
- * @param {String} $name - Имя элемента.
+ * @param {String[]} $names - Имена элементов.
  * @example:
  *    // scss
  *    .block {
- *    	  @include element('element') {
+ *    	  @include element('element_1', 'element_2') {
  *    	  }
  *    }
  */
- @mixin element($name) {
-	@at-root &__#{$name} {
+@mixin element($names...) {
+	@at-root &__#{nth($names, 1)}#{combine-names(#{&} + '__', $names)} {
+		@content;
+	}
+}
+
+@mixin element-heap($names...) {
+	@at-root &__#{nth($names, 1)}#{combine-names(',' + #{&} + '__', $names)} {
 		@content;
 	}
 }
@@ -18,18 +26,24 @@
 /**
  * Модификатор блока.
  * @access public
- * @param {String} $name - Имя модификатора.
+ * @param {String[]} $names - Имена модификаторов.
  * @example:
  *    // scss
  *    .block {
  *    	  @include element('element') {
- *        	  @include modifier('modifier') {
+ *        	  @include modifier('modifier_1', 'modifier_2') {
  *    	  	  }
  *    	  }
  *    }
  */
-@mixin modifier($name) {
-	@at-root &--#{$name} {
+@mixin modifier($names...) {
+	@at-root &--#{nth($names, 1)}#{combineBEMNames(#{&} + '--', $names)} {
+		@content;
+	}
+}
+
+@mixin modifier-heap($names...) {
+	@at-root &--#{nth($names, 1)}#{combineBEMNames(',' + #{&} + '--', $names)} {
 		@content;
 	}
 }

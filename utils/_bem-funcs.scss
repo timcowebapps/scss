@@ -1,0 +1,10 @@
+@function combine-names($prefix, $names...) {
+	$items: '';
+	@if length($names) > 1 {
+		@for $i from 2 through length($names) {
+			$items: $items + $prefix + nth($names, $i);
+		}
+	}
+
+	@return $items;
+}
