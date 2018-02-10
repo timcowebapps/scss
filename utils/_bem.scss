@@ -37,13 +37,13 @@
  *    }
  */
 @mixin modifier($names...) {
-	@at-root &--#{nth($names, 1)}#{combineBEMNames(#{&} + '--', $names)} {
+	@at-root &--#{nth($names, 1)}#{combine-names(#{&} + '--', $names)} {
 		@content;
 	}
 }
 
 @mixin modifier-heap($names...) {
-	@at-root &--#{nth($names, 1)}#{combineBEMNames(',' + #{&} + '--', $names)} {
+	@at-root &--#{nth($names, 1)}#{combine-names(',' + #{&} + '--', $names)} {
 		@content;
 	}
 }
