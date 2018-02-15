@@ -1,0 +1,53 @@
+@mixin flex-display {
+	display: -webkit-flex;
+	display: flex;
+}
+
+@mixin flex-wrap($value) {
+	-webkit-flex-wrap: $value;
+	flex-wrap: $value;
+}
+
+@mixin flex-grow($value) {
+	-webkit-flex-grow: $value;
+	flex-grow: $value;
+}
+
+@mixin flex-justifyContent($value) {
+	-webkit-justify-content: $value;
+	justify-content: $value;
+}
+
+@mixin flex-alignContent($value) {
+	-webkit-align-content: $value;
+	align-content: $value;
+}
+
+@mixin flex($value) {
+	-webkit-flex: $value;
+	flex: $value;
+}
+
+@mixin flex-basis($value) {
+	-webkit-flex-basis: $value;
+	flex-basis: $value;
+}
+
+@mixin flex-flow($direction: row, $wrap: nowrap) {
+	@if $direction == row-reverse {
+		-webkit-box-direction: reverse;
+		-webkit-box-orient: horizontal;
+	} @else if $direction == column {
+		-webkit-box-direction: normal;
+		-webkit-box-orient: vertical;
+	} @else if $direction == column-reverse {
+		-webkit-box-direction: reverse;
+		-webkit-box-orient: vertical;
+	} @else {
+		-webkit-box-direction: normal;
+		-webkit-box-orient: horizontal;
+	}
+
+	-webkit-flex-flow: $direction $wrap;
+	flex-flow: $direction $wrap;
+}
