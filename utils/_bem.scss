@@ -47,3 +47,14 @@
 		@content;
 	}
 }
+
+/**
+ * Отрицание модификатора.
+ * @access public
+ * @param {String} $name - Имя модификатора.
+ */
+@mixin not-modifier($name) {
+	&:not(&--#{$name}) {
+		@content;
+	}
+}
