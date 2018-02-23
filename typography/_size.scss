@@ -18,40 +18,6 @@ $header-sizes: (
 }
 
 /**
- * Переводит px в rem.
- * @param {Number} $target - Целочисленный размер шрифта в пикселях.
- * @param {Number} $context [$global-font-size] - Целочисленный размер шрифта по умолчанию.
- * @return {String} rem
- * @example:
- *    // scss
- *    .text {
- *    	  font-size: pxtorem(12px);
- *    }
- */
-@function pxtorem($target, $context: $global-font-size) {
-	@return ($target / $context) + 0rem;
-}
-
-/**
- * Переводит rem в px.
- * @param {Number} $target - Размер шрифта в единицах измерения rem.
- * @param {Number} $context [$global-font-size] - Целочисленный размер шрифта по умолчанию.
- * @return {String} px
- * @example:
- *    // scss
- *    .text {
- *    	  font-size: remtopx(1rem);
- *    }
- */
-@function remtopx($target, $context: $global-font-size) {
-	@return ($target * $context) + 0rem;
-}
-
-@function strip-units($number) {
-	@return $number / ($number * 0 + 1);
-}
-
-/**
  * Отзывчивый размер шрифта, основанный на viewport-юнитах.
  * @param {Number} $responsive - viewport-юнит (процент от ширины / высоты).
  * @param {Number} $min - Минимальный размер шрифта в пикселях.
@@ -69,19 +35,19 @@ $header-sizes: (
 	$min-breakpoint: $min / $responsive-unitless * 100;
 	
 	@media (max-#{$dimension}: #{$min-breakpoint}) {
-		font-size: pxtorem(strip-units($min), $global-font-size);
+		font-size: pxToRem(strip-units($min), $global-font-size);
 	}
 	
 	@if $max {
 		$max-breakpoint: $max / $responsive-unitless * 100;
 		
 		@media (min-#{$dimension}: #{$max-breakpoint}) {
-			font-size: pxtorem(strip-units($max), $global-font-size);
+			font-size: pxToRem(strip-units($max), $global-font-size);
 		}
 	}
 	
 	@if $fallback {
-		font-size: pxtorem(strip-units($fallback), $global-font-size);
+		font-size: pxToRem(strip-units($fallback), $global-font-size);
 	}
 	
 	font-size: $responsive;

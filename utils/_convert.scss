@@ -1,0 +1,42 @@
+@function strip-units($number) {
+	@return $number / ($number * 0 + 1);
+}
+
+/**
+ * Переводит px в rem.
+ * @param {Number} $target - Целочисленный размер шрифта в пикселях.
+ * @param {Number} $context [$global-font-size] - Целочисленный размер шрифта по умолчанию.
+ * @return {String} rem
+ * @example:
+ *    // scss
+ *    .text {
+ *    	  font-size: pxToRem(12px);
+ *    }
+ */
+ @function pxToRem($target, $context: $global-font-size) {
+	@return ($target / $context) + 0rem;
+}
+
+/**
+ * Переводит rem в px.
+ * @param {Number} $target - Размер шрифта в единицах измерения rem.
+ * @param {Number} $context [$global-font-size] - Целочисленный размер шрифта по умолчанию.
+ * @return {String} px
+ * @example:
+ *    // scss
+ *    .text {
+ *    	  font-size: remToPx(1rem);
+ *    }
+ */
+@function remToPx($target, $context: $global-font-size) {
+	@return ($target * $context) + 0rem;
+}
+
+/**
+ * Переводит percentage в fr.
+ * @param {Number} $target - Значение в единицах измерения percentage.
+ * @return {String} fr
+ */
+@function percentageToFr($target) {
+	@return #{strip-units($target) / 100}fr;
+}
