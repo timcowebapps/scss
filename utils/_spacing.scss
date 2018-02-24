@@ -1,0 +1,27 @@
+.spacing-above {
+	@include modifier('xs') { padding-top: 15px }
+	@include modifier('sm') { padding-top: 22.5px }
+	@include modifier('md') { padding-top: 30px }
+	@include modifier('lg') { padding-top: 50px }
+	@include modifier('xl') { padding-top: 100px }
+
+	@media(max-width: 767px) {
+		@include modifier('md') { padding-top: 27.5px }
+		@include modifier('lg') { padding-top: 37.5px }
+		@include modifier('xl') { padding-top: 75px }
+	}
+}
+
+.spacing-below {
+	@include modifier('xs') { padding-bottom: 15px }
+	@include modifier('sm') { padding-bottom: 22.5px }
+	@include modifier('md') { padding-bottom: 30px }
+	@include modifier('lg') { padding-bottom: 50px }
+	@include modifier('xl') { padding-bottom: 100px }
+
+	@media(max-width: 767px) {
+		@include modifier('md') { padding-bottom: 27.5px }
+		@include modifier('lg') { padding-bottom: 37.5px }
+		@include modifier('xl') { padding-bottom: 75px }
+	}
+}
